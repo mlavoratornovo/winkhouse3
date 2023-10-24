@@ -6,23 +6,7 @@ use super::mainwin::Mainwin;
 use super::immobili::immobili::Immobili;
 use super::anagrafiche::anagrafiche::Anagrafiche;
 use super::colloqui::colloqui::Colloqui;
-
-#[derive(Routable, Clone)]
-enum Route {
-	
-	#[route("/home")]
-	Mainwin {},
-	
-	#[route("/immobili")]
-	Immobili {},
-
-	#[route("/anagrafiche")]
-	Anagrafiche {},
-
-	#[route("/colloqui")]
-	Colloqui {},
-
-}
+use super::super::Route;
 
 pub fn Navbar(cx: Scope) -> Element {
 
