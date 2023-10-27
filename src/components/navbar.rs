@@ -12,12 +12,12 @@ pub fn Navbar(cx: Scope) -> Element {
 
     cx.render(rsx!(
         div {
-            class:"mx-auto max-w-7xl px-2 sm:px-6 lg:px-8",
+            class:"rounded-lg border-2 bg-gray-100 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8",
             div {
                 class:"relative flex h-16 items-center justify-between",
                 div {
                     class:"absolute inset-y-0 left-0 flex items-center sm:hidden",
-                    button {
+                    button {                        
                         class:"relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white",
                         "aria-controls":"mobile-menu",
                         "aria-expanded":"false",
@@ -54,6 +54,7 @@ pub fn Navbar(cx: Scope) -> Element {
                                 "stroke-linejoin":"round",
                             }
                         }
+                        
                     }
                 }
                 div {
@@ -62,7 +63,7 @@ pub fn Navbar(cx: Scope) -> Element {
                         class:"flex flex-shrink-0 items-center",
                         img {
                             class:"h-8 w-auto",
-                            src:"logowinkhose.svg",
+                            src:"wink75.png",
                             alt:"Winkhouse3"
                         }  
                     }
@@ -77,17 +78,17 @@ pub fn Navbar(cx: Scope) -> Element {
                             }
                             Link {
                                 to:Route::Immobili {},
-                                class:"text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium",                                       
+                                class:"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium",                                       
                                 "Immobii"
                             }                            
                             Link {
                                 to:Route::Anagrafiche {},
-                                class:"text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium",                                      
+                                class:"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium",                                      
                                 "Anagrafiche"
                             }                            
                             Link {
                                 to:Route::Colloqui {},
-                                class:"text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium",
+                                class:"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium",
                                 "Colloqui"
                             }                             
                         }
@@ -96,7 +97,7 @@ pub fn Navbar(cx: Scope) -> Element {
                 div {
                     class:"absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0",
                     button {
-                        class:"relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800",
+                        class:"relative rounded-full p-1 text-gray-400 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800",
                         span {
                             class:"absolute-inset-1.5"
                         }
@@ -118,10 +119,10 @@ pub fn Navbar(cx: Scope) -> Element {
                         }
                     }
                     div {
-                        class:"relative ml-3",
-                        div {
+                        class:"relative m1-3",
+                                   
                             button {
-                                class:"relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800",
+                                class:"relative rounded-full p-1 text-gray-400 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800",
                                 id:"user-menu-button",
                                 "aria-expanded":"false",
                                 "aria-haspopup":"true",
@@ -129,17 +130,36 @@ pub fn Navbar(cx: Scope) -> Element {
                                     class:"absolute-inset-1.5"
                                 }
                                 span {
-                                    class:"sr-only",
-                                    "Open user menu"
+                                    class:"sr-only",                                    
                                 }
-                                img {
-                                    class:"h-8 w-8 rounded-full",
-                                    src:""
+                                svg {
+                                    class:"h-6 w-6",
+                                    fill:"none",
+                                    stroke:"currentColor",
+                                    "viewBox":"0 0 256 256",
+                                    "stroke-width":"1.5",
+                                    "aria-hidden":"true",
+                                    circle {
+                                        cx:"128", 
+                                        cy:"128", 
+                                        r:"96", 
+                                        fill:"none",                                         
+                                        "stroke-linecap":"round",
+                                        "stroke-linejoin":"round",
+                                        "stroke-width":"12"
+                                    }                                  
+                                    path {
+                                        d:"M141.4,132.6a28,28,0,1,0-26.8,0l-13.8,32.2a8,8,0,0,0,7.3,11.2h39.8a8,8,0,0,0,7.3-11.2Z",
+                                        "fill":"none",
+                                        "stroke-linecap":"round",
+                                        "stroke-linejoin":"round",
+                                        "stroke-width":"12"
+                                    }
                                 }
                             }
-                        }
-                        div {
-                            class:"absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
+                        
+                        div {                            
+                            class:"hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
                             role:"menu",
                             tabindex:"-1",
                             "aria-orientation":"vertical",
@@ -166,7 +186,7 @@ pub fn Navbar(cx: Scope) -> Element {
                 }
             }
         }
-        div {
+        div {            
             class:"sm:hidden",
             id:"mobile-menu",
             div {
