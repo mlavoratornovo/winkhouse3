@@ -63,7 +63,7 @@ pub fn MultiSelect(cx: Scope, data: MultiSelectData) -> Element {
 
         }
         div {
-            class:"{statoComponente} absolute top-37 bg-gray-100 border border-gray-500 m-1",
+            class:"{statoComponente} absolute top-37 bg-gray-100 border border-gray-500 m-1 p-px",
             id:"filter-section-mobile-0",
             div {
                 class:"space-y-1",
@@ -85,7 +85,6 @@ pub fn MultiSelect(cx: Scope, data: MultiSelectData) -> Element {
                     }
                 }
             }
-        }
-     
+        }    
     ))
 }

@@ -8,7 +8,7 @@ use super::anagrafiche::anagrafiche::Anagrafiche;
 use super::colloqui::colloqui::Colloqui;
 use super::super::Route;
 
-pub fn Navbar(cx: Scope) -> Element {
+pub fn Navbar(cx: Scope, selected:u8) -> Element {
 
     cx.render(rsx!(
         div {
@@ -73,22 +73,22 @@ pub fn Navbar(cx: Scope) -> Element {
                             class:"flex space-x-4",
                             Link {
                                 to:Route::Mainwin {},
-                                class:"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium",                                                                
+                                class:if selected == 0 {"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"} else {"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"},
                                 "Home"
                             }
                             Link {
                                 to:Route::Immobili {},
-                                class:"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium",                                       
+                                class:if selected == 1 {"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"} else {"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"},
                                 "Immobii"
                             }                            
                             Link {
                                 to:Route::Anagrafiche {},
-                                class:"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium",                                      
+                                class:if selected == 2 {"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"} else {"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"},
                                 "Anagrafiche"
                             }                            
                             Link {
                                 to:Route::Colloqui {},
-                                class:"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium",
+                                class:if selected == 3 {"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"} else {"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"},
                                 "Colloqui"
                             }                             
                         }

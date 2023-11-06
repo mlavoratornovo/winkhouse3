@@ -6,6 +6,6 @@ use super::navbar::Navbar;
 pub fn Mainwin(cx: Scope) -> Element {
 
     cx.render(rsx!(
-        Navbar(cx)
+        Navbar(&cx, 0)
     ))
 }

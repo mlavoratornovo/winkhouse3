@@ -7,7 +7,7 @@ pub fn Immobili(cx: Scope) -> Element {
 
     cx.render(rsx!(
         div {
-            Navbar(cx)
+            Navbar(&cx, 1)
             FindBarImmobili(cx)
         }
     ))
