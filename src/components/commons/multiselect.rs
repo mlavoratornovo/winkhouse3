@@ -11,6 +11,7 @@ pub struct MultiSelectDataItem{
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct MultiSelectData{
+    pub key: i32,
     pub label_name:String,
     pub items: Vec<MultiSelectDataItem>
 }
@@ -18,6 +19,8 @@ pub struct MultiSelectData{
 #[inline_props]
 pub fn MultiSelect(cx: Scope, data: MultiSelectData) -> Element {
     let mut statoComponente = use_state(cx, || "hidden");
+    // let mut posizioneMenuX = use_state(cx, || 0.0);
+    // let mut posizioneMenuY = use_state(cx, || 0.0);
     cx.render(rsx!(
         div{
             class:"static border-t border-gray-200 px-4 py-6",
@@ -30,10 +33,12 @@ pub fn MultiSelect(cx: Scope, data: MultiSelectData) -> Element {
                     "{data.label_name}"
                 //   <!-- Expand icon, show/hide based on section open state. -->
                     svg {
-                        class:"h-5 w-5",                        
+                        class:"h-5 w-5 cursor-pointer",                        
                         fill:"currentColor",
                         onmouseup: move |event| {
                             statoComponente.set("z-10");
+                            // posizioneMenuX.set(event.screen_coordinates().x);
+                            // posizioneMenuY.set(event.screen_coordinates().y);
                         },
                         "viewBox":"0 0 20 20",
                         "aria-hidden":"true",
@@ -43,7 +48,7 @@ pub fn MultiSelect(cx: Scope, data: MultiSelectData) -> Element {
                     }
                     //    <!-- Collapse icon, show/hide based on section open state. -->
                     svg {
-                        class:"h-5 w-5", 
+                        class:"h-5 w-5 cursor-pointer", 
                         fill:"currentColor",
                         onmouseup: move |event| {
                             statoComponente.set("hidden");
@@ -60,31 +65,31 @@ pub fn MultiSelect(cx: Scope, data: MultiSelectData) -> Element {
             }
 
             // <!-- Filter section, show/hide based on section state. -->
-
-        }
-        div {
-            class:"{statoComponente} absolute top-37 bg-gray-100 border border-gray-500 m-1 p-px",
-            id:"filter-section-mobile-0",
             div {
-                class:"space-y-1",
-                for item in data.items.iter() {
-                    div {
-                        class:"flex items-center",
-                        input {
-                            id:"filter-mobile-color-0",
-                            name:"{item.key}",
-                            value:"{item.value_return}",
-                            r#type:"checkbox",
-                            class:"h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                        }
-                        label {
-                            class:"ml-3 min-w-0 flex-1 text-gray-500 text-xs",
-                            r#for:"filter-mobile-color-0",
-                            "{item.value_display}"
+                class:"{statoComponente} absolute top-37 bg-gray-100 border border-gray-500 m-1 p-px",
+                id:"filter-section-mobile-{data.key}",
+                div {
+                    class:"space-y-1",
+                    for item in data.items.iter() {
+                        div {
+                            class:"flex items-center",
+                            input {
+                                id:"filter-mobile-color-0",
+                                name:"{item.key}",
+                                value:"{item.value_return}",
+                                r#type:"checkbox",
+                                class:"h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                            }
+                            label {
+                                class:"ml-3 min-w-0 flex-1 text-gray-500 text-xs",
+                                r#for:"filter-mobile-color-0",
+                                "{item.value_display}"
+                            }
                         }
                     }
                 }
             }
-        }    
+        }
+    
     ))
 }

@@ -14,7 +14,7 @@ pub fn FindBarImmobili(cx: Scope) -> Element {
     tipologieImmobili.push(item1);
     tipologieImmobili.push(item2);
     tipologieImmobili.push(item3);
-    let x:MultiSelectData = MultiSelectData { label_name: ("Tipi immobili".to_string()), items: (tipologieImmobili)};
+    let x:MultiSelectData = MultiSelectData { key: 1, label_name: ("Tipi immobili".to_string()), items: (tipologieImmobili)};
 
     let mut riscaldamento:Vec<MultiSelectDataItem> = Vec::new();
     let item1:MultiSelectDataItem = MultiSelectDataItem {key:1, value_return:("1".to_string()), value_display:("Caldaia autonoma".to_string())};
@@ -23,7 +23,7 @@ pub fn FindBarImmobili(cx: Scope) -> Element {
     riscaldamento.push(item1);
     riscaldamento.push(item2);
     riscaldamento.push(item3);
-    let y:MultiSelectData = MultiSelectData { label_name: ("Riscaldamento".to_string()), items: (riscaldamento)};
+    let y:MultiSelectData = MultiSelectData { key: 2, label_name: ("Riscaldamento".to_string()), items: (riscaldamento)};
 
     let mut classeenergetica:Vec<MultiSelectDataItem> = Vec::new();
     let item1:MultiSelectDataItem = MultiSelectDataItem {key:1, value_return:("1".to_string()), value_display:("A".to_string())};
@@ -32,7 +32,7 @@ pub fn FindBarImmobili(cx: Scope) -> Element {
     classeenergetica.push(item1);
     classeenergetica.push(item2);
     classeenergetica.push(item3);
-    let z:MultiSelectData = MultiSelectData { label_name: ("Classe energetica".to_string()), items: (classeenergetica)};
+    let z:MultiSelectData = MultiSelectData { key: 3, label_name: ("Classe energetica".to_string()), items: (classeenergetica)};
 
     let mut statoconservativo:Vec<MultiSelectDataItem> = Vec::new();
     let item1:MultiSelectDataItem = MultiSelectDataItem {key:1, value_return:("1".to_string()), value_display:("Nuovo".to_string())};
@@ -41,13 +41,13 @@ pub fn FindBarImmobili(cx: Scope) -> Element {
     statoconservativo.push(item1);
     statoconservativo.push(item2);
     statoconservativo.push(item3);
-    let k:MultiSelectData = MultiSelectData { label_name: ("Stato conservativo".to_string()), items: (statoconservativo)};
+    let k:MultiSelectData = MultiSelectData {  key: 4, label_name: ("Stato conservativo".to_string()), items: (statoconservativo)};
 
     cx.render(rsx!(
         div {
-            class:"rounded-lg border-2 bg-gray-100 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8",
+            class:"shadow-xl rounded-lg border-2 bg-gray-100 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8",
             div {
-                class:"flex space-x-4",
+                class:"flex space-x-4 relative",
                 MultiSelect{data:x}
                 MultiSelect{data:y}
                 MultiSelect{data:z}
