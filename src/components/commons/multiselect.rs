@@ -63,10 +63,12 @@ pub fn MultiSelect(cx: Scope, data: MultiSelectData) -> Element {
                     }
                 }
             }
-
+            div {
+                class:"h-1 flex items-center text-sm",
+            }
             // <!-- Filter section, show/hide based on section state. -->
             div {
-                class:"{statoComponente} absolute top-37 bg-gray-100 border border-gray-500 m-1 p-px",
+                class:"{statoComponente} rounded-lg border-1 absolute bg-gray-100 border border-gray-500 p-1 m-2",
                 id:"filter-section-mobile-{data.key}",
                 div {
                     class:"space-y-1",

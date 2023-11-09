@@ -6,6 +6,7 @@ use super::mainwin::Mainwin;
 use super::immobili::immobili::Immobili;
 use super::anagrafiche::anagrafiche::Anagrafiche;
 use super::colloqui::colloqui::Colloqui;
+use super::categorie::categorie::Categorie;
 use super::super::Route;
 
 pub fn Navbar(cx: Scope, selected:u8) -> Element {
@@ -90,7 +91,12 @@ pub fn Navbar(cx: Scope, selected:u8) -> Element {
                                 to:Route::Colloqui {},
                                 class:if selected == 3 {"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"} else {"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"},
                                 "Colloqui"
-                            }                             
+                            }
+                            Link {
+                                to:Route::Categorie {},
+                                class:if selected == 4 {"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"} else {"text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"},
+                                "Categorie"
+                            }                            
                         }
                     }
                 }

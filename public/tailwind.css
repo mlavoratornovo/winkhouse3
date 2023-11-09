@@ -575,8 +575,8 @@ video {
   z-index: 10;
 }
 
-.m-1 {
-  margin: 0.25rem;
+.m-2 {
+  margin: 0.5rem;
 }
 
 .-mx-2 {
@@ -624,6 +624,10 @@ video {
 
 .hidden {
   display: none;
+}
+
+.h-1 {
+  height: 0.25rem;
 }
 
 .h-16 {
@@ -778,10 +782,6 @@ video {
 
 .p-2 {
   padding: 0.5rem;
-}
-
-.p-px {
-  padding: 1px;
 }
 
 .px-2 {

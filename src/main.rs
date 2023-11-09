@@ -7,6 +7,7 @@ use components::mainwin::*;
 use components::immobili::immobili::*;
 use components::anagrafiche::anagrafiche::*;
 use components::colloqui::colloqui::*;
+use components::categorie::categorie::*;
 mod components;
 fn main() {
     // LaunchBuilder::new(app).launch();
@@ -37,8 +38,11 @@ pub enum Route {
 	#[route("/anagrafiche")]
 	Anagrafiche {},
 
-	#[route("/colloqui")]
+    #[route("/colloqui")]
 	Colloqui {},
+
+	#[route("/categorie")]
+	Categorie {},
 
 }
 

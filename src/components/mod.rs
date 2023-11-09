@@ -4,3 +4,4 @@ pub mod immobili;
 pub mod anagrafiche;
 pub mod colloqui;
 pub mod commons;
+pub mod categorie;
