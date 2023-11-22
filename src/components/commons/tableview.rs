@@ -2,6 +2,9 @@
 
 use dioxus_fullstack::prelude::*;
 use dioxus::{prelude::{*, GlobalAttributes}};
+use dioxus_router::prelude::{Link, Routable};
+use super::super::commons::winkentityenum::WinkEntity;
+use super::super::super::Route;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct PaginationInfo{
@@ -16,10 +19,12 @@ pub struct TableRow{
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct TableViewData{
+    pub datatype: WinkEntity,
     pub items: Vec<TableRow>,
     pub pagination: PaginationInfo
 }
-//#[inline_props]
+
+#[inline_props]
 pub fn TableView(cx: Scope, data:TableViewData) -> Element {
     cx.render(rsx!(
         div {
@@ -31,15 +36,23 @@ pub fn TableView(cx: Scope, data:TableViewData) -> Element {
                     for item in data.items.iter() {
                         li{
                             class:"flex justify-between gap-x-6 py-5", 
-                            div{
+                            div{                                
                                 class:"flex min-w-0 gap-x-4",
-                                svg {
-                                    class:"h-12 w-12 flex-none rounded-full bg-gray-50",
-                                    fill:"currentColor",
-                                    path {
-                                        d:"M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z"
-                                    }    
-                                },
+                                Link{
+                                    to: match data.datatype{
+                                        WinkEntity::Immobili =>Route::Immobile {},
+                                        WinkEntity::Anagrafiche =>Route::Anagrafica {},
+                                        WinkEntity::Colloqui =>Route::Colloqui {},
+                                        _ => Route::Mainwin {},
+                                    },
+                                    svg {
+                                        class:"h-12 w-12 flex-none rounded-full bg-gray-50",
+                                        fill:"currentColor",
+                                        path {
+                                            d:"M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z"
+                                        },
+                                    }                                    
+                                }
                                 for column in item.columns.iter(){
                                     div{
                                         class:"min-w-0 flex-auto",

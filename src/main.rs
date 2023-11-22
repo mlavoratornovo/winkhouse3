@@ -5,7 +5,9 @@ use dioxus_router::prelude::*;
 use serde::{Deserialize, Serialize};
 use components::mainwin::*;
 use components::immobili::immobili::*;
+use components::immobili::immobile::*;
 use components::anagrafiche::anagrafiche::*;
+use components::anagrafiche::anagrafica::*;
 use components::colloqui::colloqui::*;
 use components::categorie::categorie::*;
 mod components;
@@ -35,8 +37,14 @@ pub enum Route {
 	#[route("/immobili")]
 	Immobili {},
 
+    #[route("/immobile")]
+	Immobile {},
+
 	#[route("/anagrafiche")]
 	Anagrafiche {},
+
+	#[route("/anagrafica")]
+	Anagrafica {},
 
     #[route("/colloqui")]
 	Colloqui {},
